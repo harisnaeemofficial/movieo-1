@@ -1,0 +1,21 @@
+# settings.yaml
+mode:         'development'
+port:         7777
+host:         '127.0.0.1'
+views:        'views'
+layout:       'main'
+version:      '1.0.0'
+dbhost:       '127.0.0.1'
+dbtype:       'Pg'
+dbuser:       'postgres'
+dbpass:       'h'
+dbname:       'movieo'
+session:      'Simple'
+logger:       'console'
+log:          'debug'
+show_errors:  1
+startup_info: 1
+warnings:     1
+# webscale authentication method
+username:     'admin'
+password:     'password'

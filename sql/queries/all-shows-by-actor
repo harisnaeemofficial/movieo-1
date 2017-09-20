@@ -1,0 +1,5 @@
+SELECT * FROM shows s
+JOIN actin a USING (showid)
+JOIN people p USING (personid)
+WHERE  p.fname = 'Adel' AND p.lname = 'Imam';
+

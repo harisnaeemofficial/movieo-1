@@ -1,0 +1,42 @@
+
+% my ($h) = @_;
+% my $movie		= $h<movie>;
+% my $movieid = $movie<showid>;
+% my $title = $movie<title>;
+% my $genres = $movie<genres>.join: ", " if $movie<genres>;
+% my $year = $movie<year>;
+% my $overview = $movie<overview>;
+% my $actors = $movie<actors>;
+% my $directors = $movie<directors>;
+
+<div class="page">
+	<div class="container">
+		<div class="row cover">
+		<section>
+			<div class="featured-image">
+				<img height="500" width="300" src="http://127.0.0.1:7777/images/<%= $movieid %>.jpg" alt="<%= $movie<title> %>">
+			</div>
+						
+		
+			<h2 class="5"><a href="/movie/<%= $movieid %>"><%= $title %></a> </h2> <span class="release_date"><%= $year %></span>
+		
+								<h3 dir="auto">Genres</h3>
+									
+								<p><%= $genres %> </p>
+
+									
+
+								<h3 dir="auto">Overview</h3>
+									
+										<p><%= $overview%> </p>
+
+
+			<span><a href="/movie/<%= $movieid %>/edit">Edit</a>
+				<br>
+				% for @($actors) -> $actor {
+				<%= $actor %> </br>
+				%	}
+		</section>
+		</div>
+	</div> <!-- end of div container -->
+</div> <!-- end of div page -->

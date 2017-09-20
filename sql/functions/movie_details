@@ -1,0 +1,126 @@
+CREATE OR REPLACE FUNCTION movie_details () 
+RETURNS SETOF movie
+LANGUAGE plpgsql
+AS $$
+              
+DECLARE
+show SHOWS;
+film FILMS;
+movie_actors TEXT[];
+movie_directors TEXT[];
+movie_genres TEXT[];
+movieid BIGINT;
+BEGIN
+FOR movieid IN SELECT s.showid FROM shows s
+JOIN films f USING (showid)
+LOOP
+SELECT * INTO show FROM shows s 
+WHERE s.showid = movieid;
+
+SELECT f.* INTO film FROM films f
+JOIN shows s USING (showid)
+WHERE s.showid = movieid; 
+
+SELECT array_agg(concat_ws(' ', fname, mname, lname)) INTO movie_actors FROM people p
+JOIN actin a USING (personid)
+JOIN shows s USING (showid)
+WHERE s.showid = movieid;
+
+SELECT array_agg(concat_ws(' ', fname, mname, lname)) INTO movie_directors FROM people p
+JOIN direct d USING (personid)
+JOIN shows s USING (showid)
+WHERE s.showid = movieid;
+
+SELECT array_agg(g.name) INTO movie_genres from genres g
+JOIN showgenres USING (genreid)
+JOIN shows s USING (showid)
+WHERE s.showid = movieid;
+RETURN QUERY SELECT show.showid, show.title, film.year, show.overview, movie_actors, movie_directors, movie_genres;
+END LOOP;
+RETURN;
+END;
+$$;;
+
+CREATE OR REPLACE FUNCTION movie_details (movieid BIGINT)
+RETURNS SETOF movie
+LANGUAGE plpgsql
+AS $$
+              
+DECLARE
+show SHOWS;
+film FILMS;
+movie_actors TEXT[];
+movie_directors TEXT[];
+movie_genres TEXT[];
+
+BEGIN
+
+SELECT * INTO show FROM shows s 
+WHERE s.showid = movieid;
+
+SELECT f.* INTO film FROM films f
+JOIN shows s USING (showid)
+WHERE s.showid = movieid; 
+
+SELECT array_agg(concat_ws(' ', fname, mname, lname)) INTO movie_actors FROM people p
+JOIN actin a USING (personid)
+JOIN shows s USING (showid)
+WHERE s.showid = movieid;
+
+SELECT array_agg(concat_ws(' ', fname, mname, lname)) INTO movie_directors FROM people p
+JOIN direct d USING (personid)
+JOIN shows s USING (showid)
+WHERE s.showid = movieid;
+
+SELECT array_agg(g.name) INTO movie_genres from genres g
+JOIN showgenres USING (genreid)
+JOIN shows s USING (showid)
+WHERE s.showid = movieid;
+
+RETURN QUERY
+SELECT show.showid, show.title, film.year, show.overview, movie_actors, movie_directors, movie_genres;
+END;
+$$;
+
+---
+
+CREATE OR REPLACE FUNCTION movie_details (movie_title TEXT)
+RETURNS SETOF movie
+LANGUAGE plpgsql
+AS $$
+              
+DECLARE
+show SHOWS;
+film FILMS;
+movie_actors TEXT[];
+movie_directors TEXT[];
+movie_genres TEXT[];
+
+BEGIN
+
+SELECT * INTO show FROM shows s 
+WHERE s.title = movie_title;
+
+SELECT f.* INTO film FROM films f
+JOIN shows s USING (showid)
+WHERE s.title = movie_title; 
+
+SELECT array_agg(concat_ws(' ', fname, mname, lname)) INTO movie_actors FROM people p
+JOIN actin a USING (personid)
+JOIN shows s USING (showid)
+WHERE s.title = movie_title;
+
+SELECT array_agg(concat_ws(' ', fname, mname, lname)) INTO movie_directors FROM people p
+JOIN direct d USING (personid)
+JOIN shows s USING (showid)
+WHERE s.title = movie_title;
+
+SELECT array_agg(g.name) INTO movie_genres from genres g
+JOIN showgenres USING (genreid)
+JOIN shows s USING (showid)
+WHERE s.title = movie_title;
+
+RETURN QUERY
+SELECT show.showid, show.title, film.year, show.overview, movie_actors, movie_directors, movie_genres;
+END;
+$$;;

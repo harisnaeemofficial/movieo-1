@@ -1,0 +1,123 @@
+% my ($h) = @_;
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Movieo</title>
+	 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700' rel='stylesheet' type='text/css'>
+	 <link rel="stylesheet" href="stylesheets/normalize-movies.css">
+	 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+	
+<body>
+<header class="normal">
+  <div class="content">
+    <div class="sub_media">
+      
+        <ul class="small right">
+          <li><a href="/apps">Apps</a></li>
+          <li><a href="/discuss">Forums</a></li>
+          <li><a href="/leaderboard">Leaderboard</a></li>
+          <li><a href="/contribute">Contribute</a></li>
+          <li><a href="/documentation/api">API</a></li>
+          <li><a href="/talk">Support</a></li>
+
+        </ul>
+      
+
+      <div class="left">
+        <ul class="primary">
+          
+            <li class="logo">
+              <a href="/">
+                <img width="91" height="81" src="https://www.themoviedb.org/assets/static_cache/41bdcf10bbf6f84c0fc73f27b2180b95/images/v4/logos/91x81.png" srcset="https://www.themoviedb.org/assets/static_cache/41bdcf10bbf6f84c0fc73f27b2180b95/images/v4/logos/91x81.png 1x, https://www.themoviedb.org/assets/static_cache/8ce4f6ee3ea26190a7f21d1f9e7e9be2/images/v4/logos/182x162.png 2x, https://www.themoviedb.org/assets/static_cache/fe24da13912db728dbce09807b10832e/images/v4/logos/273x243.png 3x">
+              </a>
+            </li>
+            <li>
+              <a href="/discover">Discover</a>
+              <ul class="sub_menu discover hide">
+                <li><a href="/discover/movie">Movies</a></li>
+                <li><a href="/discover/tv">TV Shows</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="/movie">Movies</a>
+              <ul class="sub_menu movie hide">
+                <li><a href="/movie">Popular</a></li>
+                <li><a href="/movie/top-rated">Top Rated</a></li>
+                <li><a href="/movie/upcoming">Upcoming</a></li>
+                <li><a href="/movie/now-playing">Now Playing</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="/tv">TV Shows</a>
+              <ul class="sub_menu tv hide">
+                <li><a href="/tv">Popular</a></li>
+                <li><a href="/tv/top-rated">Top Rated</a></li>
+                <li><a href="/tv/on-the-air">On TV</a></li>
+                <li><a href="/tv/airing-today">Airing Today</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="/person">People</a>
+              <ul class="sub_menu person hide">
+                <li><a href="/person">Popular People</a></li>
+              </ul>
+            </li>
+          
+        </ul>
+      </div>
+
+      
+        <div class="right">
+          <ul class="primary">
+            <li>
+              <div class="glyph_wrapper">
+                <a class="glyph new_icon no_click" href="#">
+                  <span class="glyphicons glyphicons-plus"></span>
+                  <div class="rollover">
+                    
+                      <p>Can't find a movie or TV show? Login to create it.</p>
+                    
+                  </div>
+                </a>
+              </div>
+            </li>
+            <li class="glyph translate"></li>
+            
+              <li><a href="/login">Login</a></li>
+              <li><a href="/account/signup">Sign Up</a></li>
+            
+          </ul>
+        </div>
+      
+    </div>
+  </div>
+
+</header>
+<main id="main" class="">
+<section>
+	<form class="form-horizontal" method="post" action="/AddMovie">
+    <section>
+      <h2 class="inner">Movie Details</h2>
+			<div class="form-group">
+      <label class="col-md-4 control-label" for="original_title">Original Title - <span>Required</span></label>
+      <input type="text" name="original_title" id="original_title" value="">
+			</div>
+			<div class="form-group">
+      <label class="col-md-4 control-label" for="overview">Movie Overview (English) - <span>Required</span> (minimum 14 characters)</label>
+      <textarea id="overview" name="overview"></textarea>
+			</div>
+    </section>
+	</form>
+
+</section>
+</main>
+
+</body>
+</html>

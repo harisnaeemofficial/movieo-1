@@ -1,0 +1,36 @@
+<header class="site-header">
+	<div class="container">
+		<a id="branding" href="/">
+			<img src="http://127.0.0.1:7777/images/logo.png" alt="Movie" class="logo">
+<!--
+			<div class="logo-copy">
+				<h1 class="site-title">Movieo</h1>
+				<small class="site-description">Movie Databse</small>
+			</div>
+-->
+		</a> <!-- #branding -->
+
+		
+		<!-- Default snippet for navigation -->
+		<div class="main-navigation">
+			<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+			<ul class="menu">
+				<li class="menu-item current-menu-item"><a href="/">Home</a></li>
+				<li class="menu-item"><a href="/movie">Movie</a></li>
+				<li class="menu-item"><a href="/tv">TV</a></li>
+				<li class="menu-item"><a href="/people">People</a></li>
+				<li class="menu-item"><a href="/contact">Contact</a></li>
+			</ul> <!-- .menu -->
+		</div> <!-- .main-navigation -->
+
+		<div class="mobile-navigation"></div>
+
+    <section class="search">
+      <form id="search_form" action="/search" method="get" accept-charset="utf-8">
+
+        <input class="search-input" name="query" type="text" tabindex="2" autocorrect="off" autofill="off" autocomplete="off" spellcheck="false" placeholder="Search for a movie, tv show, person..." value="">
+        <input type="submit">
+      </form>
+   	</section>
+	</div>
+</header>

@@ -1,0 +1,9 @@
+CREATE TYPE movie as (                                     
+id BIGINT,
+title TEXT,
+year INT,
+overview TEXT,
+actors TEXT[],
+directors TEXT[],
+genres TEXT[]
+);

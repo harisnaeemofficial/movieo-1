@@ -1,0 +1,35 @@
+--
+-- Name: add_movie(TEXT, TEXT); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION add_movie(movie_title TEXT, movie_overview TEXT) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+current_showid BIGINT;
+BEGIN
+INSERT INTO shows (title, overview) VALUES (movie_title, movie_overview) RETURNING showid INTO current_showid;
+INSERT INTO films (showid) VALUES (current_showid);
+END;
+$$;
+
+
+--
+-- Name: add_tvshow(TEXT, TEXT); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION add_tvshow(tvshow_title TEXT, tvshow_overview TEXT) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+current_showid BIGINT;
+BEGIN
+INSERT INTO shows (title, overview) VALUES (tvshow_title, tvshow_overview) RETURNING showid INTO current_showid;
+INSERT INTO films (showid) VALUES (current_showid);
+END;
+$$;
+
+
+ALTER FUNCTION public.add_movie(movie_title TEXT, movie_overview TEXT) OWNER TO postgres;
+
+ALTER FUNCTION public.add_tvshow(tvshow_title TEXT, tvshow_overview TEXT) OWNER TO postgres;

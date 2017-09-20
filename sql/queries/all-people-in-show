@@ -1,0 +1,4 @@
+SELECT * FROM people p
+JOIN acthist a USING (personid)
+JOIN shows s USING (showid)
+WHERE s.title = 'Bobbos';

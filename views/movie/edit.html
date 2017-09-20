@@ -1,0 +1,96 @@
+
+% my ($h) = @_;
+% my $movie		= $h<movie>;
+% my $person	= $h<person>;
+
+<!DOCTYPE html>
+
+<form id="primary_facts_form" class="edit" name="primary_facts" method="post" accept-charset="utf-8">
+
+  <div class="column_wrapper thirty">
+    <span class="column">
+      <label for="iso_639_1"><bdi>Original Movie Language</bdi><span id="iso_639_1_status" class="unlocked locked_status "></span></label>
+      <input dir="auto" id="iso_639_1" style="width: 100%;" name="iso_639_1" value="en" tabindex="1">
+    </span>
+
+    <span class="column seventy">
+      <label for="title"><bdi>Original Title</bdi> <span element="original_title" class="glyphicons glyphicons-question-sign tooltip"></span><span id="title_status" class="unlocked locked_status "></span></label>
+      <input dir="auto" type="text" name="title" id="title" value="The Yakoubian Building" tabindex="1">
+    </span>
+  </div>
+
+  <label for="en_US_translated_title"><bdi>Translated Title</bdi> (English)<span id="en_US_translated_title_status" class="unlocked locked_status "></span></label>
+  <input dir="auto" type="text" name="en_US_translated_title" id="en_US_translated_title" value="" tabindex="1">
+
+  <label for="en_US_tagline"><bdi>Translated Tagline</bdi> (English)<span id="en_US_tagline_status" class="unlocked locked_status "></span></label>
+  <input dir="auto" type="text" name="en_US_tagline" id="en_US_tagline" value="" tabindex="1">
+
+  <label for="en_US_overview"><bdi>Translated Overview</bdi> (English) <span element="overview" class="glyphicons glyphicons-question-sign tooltip"></span><span id="en_US_overview_status" class="unlocked locked_status "></span></label>
+  <textarea dir="auto" id="en_US_overview" name="en_US_overview" required  tabindex="1">Decline of Egypt</textarea>
+
+  <div class="column_wrapper fifty">
+    <span class="column">
+      <label for="status"><bdi>Movie Status</bdi><span id="status_status" class="unlocked locked_status "></span></label>
+      <select dir="auto" id="status" name="status" style="width: 100%;" data-placeholder="Choose a movie status..."> tabindex="1"
+        <option value="Rumored">Rumored</option>
+        <option value="Planned">Planned</option>
+        <option value="In Production">In Production</option>
+        <option value="Post Production">Post Production</option>
+        <option value="Released" selected="selected">Released</option>
+        <option value="Canceled">Cancelled</option>
+      </select>
+    </span>
+
+    <span class="column">
+      <label for="adult"><bdi>Adult Movie?</bdi><span id="adult_status" class="unlocked locked_status "></span></label>
+      <select dir="auto" id="adult" name="adult" style="width: 100%;" data-placeholder="Is this an adult movie?" tabindex="1">
+        <option value="0" selected="selected">No</option>
+        <option value="1">Yes</option>
+      </select>
+    </span>
+
+    <span class="column">
+      <label for="_type"><bdi>Convert to Collection?</bdi><span id="_type_status" class="unlocked locked_status "></span></label>
+      <select dir="auto" id="_type" name="_type" style="width: 100%;" data-placeholder="Choose a movie type..." tabindex="1">
+        <option value="Movie" selected="selected">No</option>
+        <option value="Movie Series">Yes</option>
+      </select>
+    </span>
+
+    <span class="column">
+      <label for="video"><bdi>Video?</bdi><span id="video_status" class="unlocked locked_status "></span></label>
+      <select dir="auto" id="video" class="override" name="video" style="width: 100%;" data-placeholder="Is this movie a video?" tabindex="1">
+        <option value="0" selected="selected">No</option>
+        <option value="1">Yes</option>
+      </select>
+    </span>
+
+    <span class="column">
+      <label for="en_US_runtime"><bdi>Runtime</bdi><span id="en_US_runtime_status" class="unlocked locked_status "></span></label>
+      <input dir="auto" type="text" name="en_US_runtime" id="en_US_runtime" value="0" tabindex="1">
+    </span>
+
+    <span class="column">
+      <label for="revenue"><bdi>Revenue (US Dollars)</bdi><span id="revenue_status" class="unlocked locked_status "></span></label>
+      <input dir="auto" type="text" name="revenue" id="revenue" value="" tabindex="1">
+    </span>
+
+    <span class="column">
+      <label>IMDB ID</label>
+      <a href="/movie/470124-the-yakoubian-building/edit?active_nav_item=external_ids">We have moved this field... click here.</a>
+    </span>
+
+    <span class="column">
+      <label for="budget"><bdi>Budget (US Dollars)</bdi><span id="budget_status" class="unlocked locked_status "></span></label>
+      <input dir="auto" type="text" name="budget" id="budget" value="" tabindex="1">
+    </span>
+  </div>
+
+  <label for="homepage"><bdi>Homepage</bdi> <span element="homepage" class="glyphicons glyphicons-question-sign tooltip"></span><span id="en_US_homepage_status" class="unlocked locked_status "></span></label>
+  <input dir="auto" type="text" name="en_US_homepage" id="en_US_homepage" value="" tabindex="1">
+
+  <label for="spoken_languages"><bdi>Spoken Languages</bdi><span id="spoken_languages_status" class="unlocked locked_status "></span></label>
+  <select dir="auto" style="width: 100%;" id="spoken_languages" name="spoken_languages[]" multiple tabindex="1"></select>
+
+  <input id="submit" type="submit" class="rounded background_color green" value="Save">
+</form>

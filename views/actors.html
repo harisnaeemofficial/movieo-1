@@ -1,0 +1,28 @@
+
+% my ($h) = @_;
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Actors</title>
+		<link rel=stylesheet type=text/css href="stylesheets/normalize.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  </head>
+  <body>
+    <h1>Actors</h1>
+    <div>
+
+			%  my @actors = $h<actors>.list;
+
+			% for @actors -> $actor {
+				<li>
+				<h3> <%= $actor<name> ~ " " ~ $actor<sname> %></h3>
+				<br>
+			% }
+
+    </div>
+  </body>
+</html>

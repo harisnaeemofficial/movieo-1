@@ -1,0 +1,23 @@
+WITH movie AS (
+SELECT s.title, s.overview, f.year  FROM shows s 
+JOIN films f USING (showid)
+WHERE s.title = 'Amir El Zalam'),
+actors AS (
+SELECT fname actor_fname, lname actor_lname FROM people p
+JOIN actin a USING (personid)
+JOIN shows s USING (showid)
+WHERE s.title = 'Amir El Zalam'),
+directors AS (
+SELECT fname director_fname, lname director_lname FROM people p
+JOIN direct a USING (personid)
+JOIN shows s USING (showid)
+WHERE s.title = 'Amir El Zalam'),
+genres AS (
+SELECT g.name genre_name from genres g
+JOIN showgenres USING (genreid)
+JOIN shows s USING (showid)
+WHERE s.title = 'Amir El Zalam')
+SELECT * FROM movie
+LEFT JOIN actors ON TRUE
+LEFT JOIN directors ON TRUE
+LEFT JOIN genres ON TRUE;
