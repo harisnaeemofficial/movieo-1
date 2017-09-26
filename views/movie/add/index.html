@@ -1,14 +1,14 @@
-% my ($h) = @_;
+% my ($movie) = @_;
 
 
 <div class="page">
 	<div class="container">
 		<h2 class="inner">Movie Details</h2>
-		<% if $h<showid> { %><p> <%= $h<showid> %> </p> <% } %>
+		<% if $movie<showid> { %><p> <%= $movie<showid> %> </p> <% } %>
 
 		<div class="row">
 			<div class="col-md-5">
-				<form class="add-movie-form" method="post" action="/movie/new">
+				<form class="add-movie-form" method="post" action="/movie/add">
 					<input type="text" id="title" name="title" placeholder="Original Title" required>
 					<input type="text" id="releaseyear" name="releaseyear" placeholder="Release Year">
 					<textarea id="overview" name="overview" placeholder="Overview" required></textarea>

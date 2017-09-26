@@ -1,6 +1,5 @@
 
-% my ($h) = @_;
-% my @movies = $h<movies>.list;
+% my (@movies) = @_;
 
 <div class="page">
 	<div class="container">
@@ -35,12 +34,12 @@
 
 			<div class="show-item filterable-item upcoming">
 					<div class="show-img">
-						<a href="/movie/<%= $movieid %>"><img src="http://127.0.0.1:7777/images/<%= $movieid %>.jpg" alt="<%= $title %>"></a>
+						<a href="/movie/info/<%= $movieid %>"><img src="http://127.0.0.1:7777/images/<%= $movieid %>.jpg" alt="<%= $title %>"></a>
 					</div>
 					<div class="show-info">
-						<p class="title-and-rating"><span class="show-title"><a href="/movie/<%= $movieid %>"><%= $title %></a></span><span class="show-rating">7.7<span>☆</span></span></p>
+						<p class="title-and-rating"><span class="show-title"><a href="/movie/info/<%= $movieid %>"><%= $title %></a></span><span class="show-rating">7.7<span>☆</span></span></p>
 						<p class="year-and-genres"><span class="show-year"> <%= $year %></span> <span class="show-genres"><%= $genres %></span></p>
-						<p class="show-overview"><a href="/movie/<%= $movieid %>"><%= $overview %></a></p>
+						<p class="show-overview"><a href="/movie/info/<%= $movieid %>"><%= $overview %></a></p>
 					</div>
 			</div>
 		% }
