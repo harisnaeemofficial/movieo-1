@@ -3,6 +3,7 @@ class Movieo::Model::People {
 
 	method people-list {
 		my $sql = qq:to/END/;
+		SELECT;
 		END
 
 		my $sth = $!dbh.prepare($sql);
@@ -13,6 +14,7 @@ class Movieo::Model::People {
 
 	method person-info(Int $id) {
 		my $sql = qq:to/END/;
+		SELECT;
 		END
 
 		my $sth = $!dbh.prepare($sql);
@@ -24,6 +26,7 @@ class Movieo::Model::People {
 
 	method person-edit(Int $id) {
 		my $sql = qq:to/END/;
+		SELECT;
 		END
 
 		my $sth = $!dbh.prepare($sql);
@@ -35,6 +38,7 @@ class Movieo::Model::People {
 
 	method person-update(Int $id, $title, $overview) {
 		my $sql = qq:to/END/;
+		SELECT;
 		END
 
 		my $sth = $!dbh.prepare($sql);
@@ -43,6 +47,7 @@ class Movieo::Model::People {
 
 	method person-add(:$title, :$overview, :$releaseyear?) {
 		my $sql = qq:to/END/;
+		SELECT;
 		END
 
 		my $sth = $!dbh.prepare($sql);
@@ -53,6 +58,7 @@ class Movieo::Model::People {
 		}
 		else {
 		my $sql = qq:to/END/;
+		SELECT;
 		END
 
 		my $sth = $!dbh.prepare($sql);

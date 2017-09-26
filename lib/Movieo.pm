@@ -1,6 +1,5 @@
 use Bailador;
 use Movieo::IoC;
-use Movieo::Controller::Movie;
 
 
 class Movieo {
@@ -39,6 +38,68 @@ class Movieo {
 			service => 'ControllerMovie',
 			to			=> 'movie-add'
 		}
+
+
+		get		'/tvshow'	=> {
+			service => 'ControllerTVShow',
+			to			=> 'tvshow-list'
+		}
+
+		get		'/tvshow/info/:id'	=> {
+			service => 'ControllerTVShow',
+			to			=> 'tvshow-info'
+		}
+
+		get		'/tvshow/edit/:id'	=> {
+			service => 'ControllerTVShow',
+			to			=> 'tvshow-edit'
+		}
+
+		post	'/tvshow/edit/:id'	=> {
+			service => 'ControllerTVShow',
+			to			=> 'tvshow-update'
+		}
+
+		get		'/tvshow/add'	=> sub {
+			template '/tvshow/add/index.html';
+		}
+
+		post	'/tvshow/add'	=> {
+			service => 'ControllerTVShow',
+			to			=> 'tvshow-add'
+		}
+
+
+		get		'/people'	=> {
+			service => 'ControllerPeople',
+			to			=> 'people-list'
+		}
+
+		get		'/people/info/:id'	=> {
+			service => 'ControllerPeople',
+			to			=> 'person-info'
+		}
+
+		get		'/people/edit/:id'	=> {
+			service => 'ControllerPeople',
+			to			=> 'person-edit'
+		}
+
+		post	'/people/edit/:id'	=> {
+			service => 'ControllerPeople',
+			to			=> 'person-update'
+		}
+
+		get		'/people/add'	=> sub {
+			template '/people/add/index.html';
+		}
+
+		post	'/people/add'	=> {
+			service => 'ControllerPeople',
+			to			=> 'person-add'
+		}
+
+
 
 		static-dir / (.*) / => 'assets/';
 	}

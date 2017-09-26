@@ -3,7 +3,7 @@ use Bailador;
 class Movieo::Controller::People {
 	has $.model;
 
-	method person-list {
+	method people-list {
 		my @people = $.model.people-list();
 		template 'people/index.html', @people;
 	}
