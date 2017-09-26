@@ -3,7 +3,7 @@ use Bailador;
 class Movieo::Controller::People {
 	has $.model;
 
-	method person-list {
+	method people-list {
 		my @people = $.model.people-list();
 		template 'people/index.html', @people;
 	}
@@ -13,7 +13,7 @@ class Movieo::Controller::People {
 		template 'people/info/index.html', $person; 
 	}
 
-	method edit-person($id) {
+	method person-edit($id) {
 		my $person = $.model.person-edit($id.Int);
 		template 'people/edit/index.html', $person; 
 	}
