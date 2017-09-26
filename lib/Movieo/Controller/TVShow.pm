@@ -13,7 +13,7 @@ class Movieo::Controller::TVShow {
 		template 'tvshow/info/index.html', $tvshow; 
 	}
 
-	method edit-tvshow($id) {
+	method tvshow-edit($id) {
 		my $tvshow = $.model.tvshow-edit($id.Int);
 		template 'tvshow/edit/index.html', $tvshow; 
 	}

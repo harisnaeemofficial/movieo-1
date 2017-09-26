@@ -13,7 +13,7 @@ class Movieo::Controller::Movie {
 		template 'movie/info/index.html', $movie; 
 	}
 
-	method edit-movie($id) {
+	method movie-edit($id) {
 		my $movie = $.model.movie-edit($id.Int);
 		template 'movie/edit/index.html', $movie; 
 	}
