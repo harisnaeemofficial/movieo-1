@@ -1,7 +1,7 @@
 class Movieo::Model::TVShow {
 	has $.dbh is required;
 
-	method tvshow-list {
+	method list {
 		my $sql = qq:to/END/;
 		SELECT;
 		END
@@ -12,7 +12,7 @@ class Movieo::Model::TVShow {
 		return @tvshows;
 	}
 
-	method tvshow-info(Int $id) {
+	method info(Int $id) {
 		my $sql = qq:to/END/;
 		SELECT;
 		END
@@ -24,7 +24,7 @@ class Movieo::Model::TVShow {
 		return $tvshow;
 	}
 
-	method tvshow-edit(Int $id) {
+	method edit(Int $id) {
 		my $sql = qq:to/END/;
 		SELECT;
 		END
@@ -36,7 +36,7 @@ class Movieo::Model::TVShow {
 		return $tvshow;
 	}
 
-	method tvshow-update(Int $id, $title, $overview) {
+	method update(Int $id, $title, $overview) {
 		my $sql = qq:to/END/;
 		SELECT;
 		END
@@ -45,7 +45,7 @@ class Movieo::Model::TVShow {
 		$sth.execute;
 	}
 
-	method tvshow-add(:$title, :$overview, :$releaseyear?) {
+	method add(:$title, :$overview, :$releaseyear?) {
 		my $sql = qq:to/END/;
 		SELECT;
 		END

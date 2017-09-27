@@ -3,39 +3,39 @@ use Bailador;
 class Movieo::Controller::TVShow {
 	has $.model;
 
-	method tvshow-list {
-		my @tvshows = $.model.tvshow-list();
+	method list {
+		my @tvshows = $.model.list();
 		template 'tvshow/index.html', @tvshows;
 	}
 
-	method tvshow-info($id) {
-		my $tvshow = $.model.tvshow-info($id.Int);
+	method info($id) {
+		my $tvshow = $.model.info($id.Int);
 		template 'tvshow/info/index.html', $tvshow; 
 	}
 
-	method tvshow-edit($id) {
-		my $tvshow = $.model.tvshow-edit($id.Int);
+	method edit($id) {
+		my $tvshow = $.model.edit($id.Int);
 		template 'tvshow/edit/index.html', $tvshow; 
 	}
 
-	method tvshow-update($id) {
+	method update($id) {
 		my %param	= request.params();
 
 		my $title			= %param<title>;
 		my $overview	= %param<overview>;
 
-		my $tvshow = $.model.tvshow-update($id.Int, $title, $overview);
+		my $tvshow = $.model.update($id.Int, $title, $overview);
 
 		return redirect 'tvshow/info/$id'; 
 	}
 
-	method tvshow-add() {
+	method add() {
 		my %param	= request.params();
 		my $title			= %param<title>;
 		my $overview	= %param<overview>;
 		my $releaseyear	= %param<releaseyear>;
 
-		my $tvshow = $.model.tvshow-add(:$title, :$overview, :$releaseyear);
+		my $tvshow = $.model.add(:$title, :$overview, :$releaseyear);
 		return redirect "info/$tvshow"; 
 	}
 }

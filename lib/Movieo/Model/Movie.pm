@@ -1,7 +1,7 @@
 class Movieo::Model::Movie {
 	has $.dbh is required;
 
-	method movie-list {
+	method list {
 		my $sql = qq:to/END/;
 		SELECT * FROM movie_details();
 		END
@@ -12,7 +12,7 @@ class Movieo::Model::Movie {
 		return @movies;
 	}
 
-	method movie-info(Int $id) {
+	method info(Int $id) {
 		my $sql = qq:to/END/;
 		SELECT * FROM movie_details ($id);
 		END
@@ -24,7 +24,7 @@ class Movieo::Model::Movie {
 		return $movie;
 	}
 
-	method movie-edit(Int $id) {
+	method edit(Int $id) {
 		my $sql = qq:to/END/;
 		SELECT S.* FROM shows S
 		INNER JOIN films F ON S.showid = F.showid
@@ -38,7 +38,7 @@ class Movieo::Model::Movie {
 		return $movie;
 	}
 
-	method movie-update(Int $id, $title, $overview) {
+	method update(Int $id, $title, $overview) {
 		my $sql = qq:to/END/;
 		SELECT movie_update('$title', '$overview');
 		END
@@ -47,7 +47,7 @@ class Movieo::Model::Movie {
 		$sth.execute;
 	}
 
-	method movie-add(:$title, :$overview, :$releaseyear?) {
+	method add(:$title, :$overview, :$releaseyear?) {
 		my $sql = qq:to/END/;
 		SELECT S.title FROM shows s
 		INNER JOIN films f ON s.showid = f.showid;

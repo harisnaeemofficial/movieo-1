@@ -12,22 +12,22 @@ class Movieo {
 
 		get		'/movie'	=> {
 			service => 'ControllerMovie',
-			to			=> 'movie-list'
+			to			=> 'list'
 		}
 
 		get		'/movie/info/:id'	=> {
 			service => 'ControllerMovie',
-			to			=> 'movie-info'
+			to			=> 'info'
 		}
 
 		get		'/movie/edit/:id'	=> {
 			service => 'ControllerMovie',
-			to			=> 'movie-edit'
+			to			=> 'edit'
 		}
 
 		post	'/movie/edit/:id'	=> {
 			service => 'ControllerMovie',
-			to			=> 'movie-update'
+			to			=> 'update'
 		}
 
 		get		'/movie/add'	=> sub {
@@ -36,28 +36,28 @@ class Movieo {
 
 		post	'/movie/add'	=> {
 			service => 'ControllerMovie',
-			to			=> 'movie-add'
+			to			=> 'add'
 		}
 
 
 		get		'/tvshow'	=> {
 			service => 'ControllerTVShow',
-			to			=> 'tvshow-list'
+			to			=> 'list'
 		}
 
 		get		'/tvshow/info/:id'	=> {
 			service => 'ControllerTVShow',
-			to			=> 'tvshow-info'
+			to			=> 'info'
 		}
 
 		get		'/tvshow/edit/:id'	=> {
 			service => 'ControllerTVShow',
-			to			=> 'tvshow-edit'
+			to			=> 'edit'
 		}
 
 		post	'/tvshow/edit/:id'	=> {
 			service => 'ControllerTVShow',
-			to			=> 'tvshow-update'
+			to			=> 'update'
 		}
 
 		get		'/tvshow/add'	=> sub {
@@ -66,28 +66,28 @@ class Movieo {
 
 		post	'/tvshow/add'	=> {
 			service => 'ControllerTVShow',
-			to			=> 'tvshow-add'
+			to			=> 'add'
 		}
 
 
 		get		'/people'	=> {
 			service => 'ControllerPeople',
-			to			=> 'people-list'
+			to			=> 'list'
 		}
 
 		get		'/people/info/:id'	=> {
 			service => 'ControllerPeople',
-			to			=> 'person-info'
+			to			=> 'info'
 		}
 
 		get		'/people/edit/:id'	=> {
 			service => 'ControllerPeople',
-			to			=> 'person-edit'
+			to			=> 'edit'
 		}
 
 		post	'/people/edit/:id'	=> {
 			service => 'ControllerPeople',
-			to			=> 'person-update'
+			to			=> 'update'
 		}
 
 		get		'/people/add'	=> sub {
@@ -96,7 +96,7 @@ class Movieo {
 
 		post	'/people/add'	=> {
 			service => 'ControllerPeople',
-			to			=> 'person-add'
+			to			=> 'add'
 		}
 
 

@@ -1,7 +1,7 @@
 class Movieo::Model::People {
 	has $.dbh is required;
 
-	method people-list {
+	method list {
 		my $sql = qq:to/END/;
 		SELECT;
 		END
@@ -12,7 +12,7 @@ class Movieo::Model::People {
 		return @people;
 	}
 
-	method person-info(Int $id) {
+	method info(Int $id) {
 		my $sql = qq:to/END/;
 		SELECT;
 		END
@@ -24,7 +24,7 @@ class Movieo::Model::People {
 		return $person;
 	}
 
-	method person-edit(Int $id) {
+	method edit(Int $id) {
 		my $sql = qq:to/END/;
 		SELECT;
 		END
@@ -36,7 +36,7 @@ class Movieo::Model::People {
 		return $person;
 	}
 
-	method person-update(Int $id, $title, $overview) {
+	method update(Int $id, $title, $overview) {
 		my $sql = qq:to/END/;
 		SELECT;
 		END
@@ -45,7 +45,7 @@ class Movieo::Model::People {
 		$sth.execute;
 	}
 
-	method person-add(:$title, :$overview, :$releaseyear?) {
+	method add(:$title, :$overview, :$releaseyear?) {
 		my $sql = qq:to/END/;
 		SELECT;
 		END
