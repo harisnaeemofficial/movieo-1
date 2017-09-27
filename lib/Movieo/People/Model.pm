@@ -1,30 +1,18 @@
-class Movieo::Model::TVShow {
+class Movieo::People::Model {
 	has $.dbh is required;
 
-	method tvshow-list {
+	method list {
 		my $sql = qq:to/END/;
 		SELECT;
 		END
 
 		my $sth = $!dbh.prepare($sql);
 		$sth.execute;
-		my @tvshows = $sth.allrows(:array-of-hash);
-		return @tvshows;
+		my @people = $sth.allrows(:array-of-hash);
+		return @people;
 	}
 
-	method tvshow-info(Int $id) {
-		my $sql = qq:to/END/;
-		SELECT;
-		END
-
-		my $sth = $!dbh.prepare($sql);
-		$sth.execute;
-
-		my $tvshow = $sth.row(:hash);
-		return $tvshow;
-	}
-
-	method tvshow-edit(Int $id) {
+	method info(Int $id) {
 		my $sql = qq:to/END/;
 		SELECT;
 		END
@@ -32,11 +20,23 @@ class Movieo::Model::TVShow {
 		my $sth = $!dbh.prepare($sql);
 		$sth.execute;
 
-		my $tvshow = $sth.row(:hash);
-		return $tvshow;
+		my $person = $sth.row(:hash);
+		return $person;
 	}
 
-	method tvshow-update(Int $id, $title, $overview) {
+	method edit(Int $id) {
+		my $sql = qq:to/END/;
+		SELECT;
+		END
+
+		my $sth = $!dbh.prepare($sql);
+		$sth.execute;
+
+		my $person = $sth.row(:hash);
+		return $person;
+	}
+
+	method update(Int $id, $title, $overview) {
 		my $sql = qq:to/END/;
 		SELECT;
 		END
@@ -45,7 +45,7 @@ class Movieo::Model::TVShow {
 		$sth.execute;
 	}
 
-	method tvshow-add(:$title, :$overview, :$releaseyear?) {
+	method add(:$title, :$overview, :$releaseyear?) {
 		my $sql = qq:to/END/;
 		SELECT;
 		END
@@ -63,8 +63,9 @@ class Movieo::Model::TVShow {
 
 		my $sth = $!dbh.prepare($sql);
 		$sth.execute;
-		my $tvshowid = $sth.row();
-		return $tvshowid;
+		my $personid = $sth.row();
+		return $personid;
 		}
 	}
+
 }

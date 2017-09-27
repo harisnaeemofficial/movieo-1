@@ -1,41 +1,41 @@
 use Bailador;
 
-class Movieo::Controller::People {
+class Movieo::People::Controller {
 	has $.model;
 
-	method people-list {
-		my @people = $.model.people-list();
+	method list {
+		my @people = $.model.list();
 		template 'people/index.html', @people;
 	}
 
-	method person-info($id) {
-		my $person = $.model.person-info($id.Int);
+	method info($id) {
+		my $person = $.model.info($id.Int);
 		template 'people/info/index.html', $person; 
 	}
 
-	method person-edit($id) {
-		my $person = $.model.person-edit($id.Int);
+	method edit($id) {
+		my $person = $.model.edit($id.Int);
 		template 'people/edit/index.html', $person; 
 	}
 
-	method person-update($id) {
+	method update($id) {
 		my %param	= request.params();
 
 		my $title			= %param<title>;
 		my $overview	= %param<overview>;
 
-		my $person = $.model.person-update($id.Int, $title, $overview);
+		my $person = $.model.update($id.Int, $title, $overview);
 
 		return redirect 'people/info/$id'; 
 	}
 
-	method person-add() {
+	method add() {
 		my %param	= request.params();
 		my $title			= %param<title>;
 		my $overview	= %param<overview>;
 		my $releaseyear	= %param<releaseyear>;
 
-		my $person = $.model.people-add(:$title, :$overview, :$releaseyear);
+		my $person = $.model.add(:$title, :$overview, :$releaseyear);
 		return redirect "info/$person"; 
 	}
 }

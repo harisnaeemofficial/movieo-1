@@ -1,51 +1,51 @@
 use IoC;
 use DBIish;
 
-use Movieo::Model::Movie;
-use Movieo::Model::TVShow;
-use Movieo::Model::People;
-use Movieo::Controller::Movie;
-use Movieo::Controller::TVShow;
-use Movieo::Controller::People;
+use Movieo::Movie::Model;
+use Movieo::TVShow::Model;
+use Movieo::People::Model;
+use Movieo::Movie::Controller;
+use Movieo::TVShow::Controller;
+use Movieo::People::Controller;
 
 unit module Movieo::IoC;
 
-sub setup-ioc is export {
+sub ioc is export {
 	my $container = container 'Movieo' => contains {
-		service 'ModelMovie' => {
+		service 'MovieModel' => {
 			lifecycle			=> 'Singleton',
-			type					=> Movieo::Model::Movie,
+			type					=> Movieo::Movie::Model,
 			dependencies	=> { dbh => 'dbh' },
 		};
 
-		service 'ModelTVShow' => {
+		service 'TVShowModel' => {
 			lifecycle			=> 'Singleton',
-			type					=> Movieo::Model::TVShow,
+			type					=> Movieo::TVShow::Model,
 			dependencies	=> { dbh => 'dbh' },
 		};
 
-		service 'ModelPeople' => {
+		service 'PeopleModel' => {
 			lifecycle			=> 'Singleton',
-			type					=> Movieo::Model::People,
+			type					=> Movieo::People::Model,
 			dependencies	=> { dbh => 'dbh' },
 		};
 
-		service 'ControllerMovie' => {
+		service 'MovieController' => {
 			lifecycle			=> 'Singleton',
-			type					=> Movieo::Controller::Movie,
-			dependencies	=> { model => 'ModelMovie' },
+			type					=> Movieo::Movie::Controller,
+			dependencies	=> { model => 'MovieModel' },
 		};	
 
-		service 'ControllerTVShow' => {
+		service 'TVShowController' => {
 			lifecycle			=> 'Singleton',
-			type					=> Movieo::Controller::TVShow,
-			dependencies	=> { model => 'ModelTVShow' },
+			type					=> Movieo::TVShow::Controller,
+			dependencies	=> { model => 'TVShowModel' },
 		};	
 
-		service 'ControllerPeople' => {
+		service 'PeopleController' => {
 			lifecycle			=> 'Singleton',
-			type					=> Movieo::Controller::People,
-			dependencies	=> { model => 'ModelPeople' },
+			type					=> Movieo::People::Controller,
+			dependencies	=> { model => 'PeopleModel' },
 		};	
 
 		service 'dbh' => {
