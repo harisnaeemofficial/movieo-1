@@ -1,6 +1,6 @@
 use Bailador;
 
-class Movieo::Controller::Movie {
+class Movieo::Movie::Controller {
 	has $.model;
 
 	method list {

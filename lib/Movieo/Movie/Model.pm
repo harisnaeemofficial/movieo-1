@@ -1,44 +1,46 @@
-class Movieo::Model::TVShow {
+class Movieo::Movie::Model {
 	has $.dbh is required;
 
 	method list {
 		my $sql = qq:to/END/;
-		SELECT;
+		SELECT * FROM movie_details();
 		END
 
 		my $sth = $!dbh.prepare($sql);
 		$sth.execute;
-		my @tvshows = $sth.allrows(:array-of-hash);
-		return @tvshows;
+		my @movies = $sth.allrows(:array-of-hash);
+		return @movies;
 	}
 
 	method info(Int $id) {
 		my $sql = qq:to/END/;
-		SELECT;
+		SELECT * FROM movie_details ($id);
 		END
 
 		my $sth = $!dbh.prepare($sql);
 		$sth.execute;
 
-		my $tvshow = $sth.row(:hash);
-		return $tvshow;
+		my $movie = $sth.row(:hash);
+		return $movie;
 	}
 
 	method edit(Int $id) {
 		my $sql = qq:to/END/;
-		SELECT;
+		SELECT S.* FROM shows S
+		INNER JOIN films F ON S.showid = F.showid
+		WHERE S.showid = '$id';
 		END
 
 		my $sth = $!dbh.prepare($sql);
 		$sth.execute;
 
-		my $tvshow = $sth.row(:hash);
-		return $tvshow;
+		my $movie = $sth.row(:hash);
+		return $movie;
 	}
 
 	method update(Int $id, $title, $overview) {
 		my $sql = qq:to/END/;
-		SELECT;
+		SELECT movie_update('$title', '$overview');
 		END
 
 		my $sth = $!dbh.prepare($sql);
@@ -47,7 +49,8 @@ class Movieo::Model::TVShow {
 
 	method add(:$title, :$overview, :$releaseyear?) {
 		my $sql = qq:to/END/;
-		SELECT;
+		SELECT S.title FROM shows s
+		INNER JOIN films f ON s.showid = f.showid;
 		END
 
 		my $sth = $!dbh.prepare($sql);
@@ -58,13 +61,13 @@ class Movieo::Model::TVShow {
 		}
 		else {
 		my $sql = qq:to/END/;
-		SELECT;
+		SELECT add_movie('$title', '$overview');
 		END
 
 		my $sth = $!dbh.prepare($sql);
 		$sth.execute;
-		my $tvshowid = $sth.row();
-		return $tvshowid;
+		my $movieid = $sth.row();
+		return $movieid;
 		}
 	}
 }
